@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}SAM{% endblock %}
+
+{% block content %}
+
+<h1>SAM</h1>
+
+<div class="table-responsive w-25">
+    <table class="table table-sm ">
+        <tr>
+            <th>Module</th>
+            <th>Status</th>
+        </tr>
+        <tbody>
+            {% for key, value in modules_status.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>
+                    {% if value %}
+                    <div class="bg-success text-white">ON</div>
+                    {% else %}
+                    <div class="bg-danger text-white    ">OFF</div>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
