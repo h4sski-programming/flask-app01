@@ -18,9 +18,11 @@
                 <td>{{ key }}</td>
                 <td>
                     {% if value %}
-                    <div class="bg-success text-white">ON</div>
+                    <input type="submit" name="{{ key }}_on_off" class="btn btn-success" value="ON">
+                    <input type="submit" name="{{ key }}_on_off" class="btn btn-outline-danger" value="OFF">
                     {% else %}
-                    <div class="bg-danger text-white    ">OFF</div>
+                    <input type="submit" name="{{ key }}_on_off" class="btn btn-outline-success" value="ON">
+                    <input type="submit" name="{{ key }}_on_off" class="btn btn-danger" value="OFF">
                     {% endif %}
                 </td>
             </tr>

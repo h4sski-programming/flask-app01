@@ -11,8 +11,16 @@ def get_db():
     
     return g.db
 
+
 def close_db():
     db = g.pop('db', None)
 
     if db is not None:
         db.close()
+
+
+def with_db_open(inner_function, *args, **kwargs):
+    database = get_db()
+    result = inner_function(db=database, *args, **kwargs)
+    close_db()
+    return result
