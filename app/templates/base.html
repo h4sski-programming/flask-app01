@@ -19,12 +19,27 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="messages bg-warning px-3 py-0.5">
-            {% for message in messages %}
-            <p>{{ message }}</p>
-            {% endfor %}
+  <div class="container">
+
+    <div class="menu">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('routes.index') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('routes.sam') }}">SAM</a></li>
+          </ul>
         </div>
+      </nav>
+    </div>
+
+      <div class="messages bg-warning px-3 py-0.5">
+          {% for message in messages %}
+          <p>{{ message }}</p>
+          {% endfor %}
+      </div>
+
+      
+      <main>
         <div id="content" name="content" class="main">
 
             {% block content %}
@@ -34,7 +49,8 @@
             {% endblock %}
 
         </div>
-    </div>
+      </main>
+  </div>
 
 <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
